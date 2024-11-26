@@ -38,6 +38,11 @@ class YOLODetector:
         return intersection_area / float(box1_area + box2_area - intersection_area)
     
     def check_color_in_range(self, image, box, color_name):
+
+        if not self.config.use_hsv_detection:
+            # 如果未啟用 HSV 檢測，直接返回 True
+            return True
+
         """檢查顏色是否在指定範圍內"""
         x1, y1, x2, y2 = box
         region = image[y1:y2, x1:x2]

@@ -14,6 +14,7 @@ class DetectionConfig:
     expected_color_order: List[str] = None
     color_ranges: Dict[str, List[List[Tuple[int, int, int]]]] = None
     timeout: int = 2
+    use_hsv_detection: bool = True
 
     @classmethod
     def from_yaml(cls, path: str) -> 'DetectionConfig':
